@@ -43,7 +43,6 @@ class ArrayInput extends Widget {
     
     public function init() {
         parent::init();
-      //  echo '<pre>'; var_dump($this->model->c ); echo '</pre>'; exit;
         if (!isset($this->options['class'])) $this->options['class']='ejkot-arrayinput';
         $view=\Yii::$app->getView();
         $this->registerJS($view);

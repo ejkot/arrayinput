@@ -67,14 +67,6 @@
       return methods.init.apply( this, arguments );
     } else {
     return false;
-     /* $.error( 'Метод с именем ' +  method + ' не существует для jQuery.tooltip' );*/
     } 
   };
 })( jQuery );
-
-$(document).ready(function(){
-   // $('.hasArrayinput').kotArrayInput('init');
-    /* $('.hasArrayinput').each(function(){
-        $(this).kotArrayInput('init');
-    });*/
-});
