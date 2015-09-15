@@ -3,7 +3,7 @@
  * @link https://github.com/ejkot/
  * @copyright ejkot software developer
  * @license Freeware
- * @version 0.0alpha
+ * @version 0.1alpha
  */
 
 namespace app\widgets\ejkot;

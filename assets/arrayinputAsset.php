@@ -1,7 +1,7 @@
 <?php
 /*
  * @name Asset for ArrayInput widget
- * @author ejkot
+ * @author ejkot 
  */
 namespace app\widgets\ejkot\assets;
 use yii\web\AssetBundle;

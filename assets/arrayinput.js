@@ -1,4 +1,4 @@
-/* @name jquery plugin for arrayinput yii2 widget
+/* @name jquery plugin for arrayinput yii2 widget asset
  * @Author ejkot
  */
 (function( $ ){
