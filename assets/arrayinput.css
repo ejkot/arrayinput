@@ -1,0 +1,11 @@
+.ejkot-arrayinput {
+}
+
+.ejkot-arrayinput>ul {
+    padding-left:0;
+    list-style: none;
+}
+
+.ejkot-arrayinput>ul>li>a {
+    text-decoration: none;
+}
