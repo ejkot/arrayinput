@@ -36,9 +36,10 @@ class ArrayInput extends Widget {
   */
     public $options=[];
  /* Input data format. default: PGSQL (ex. {1,2,3})
-  * TODO: New formats: ex JSON, Ajax
+  * TODO: New formats: ex JSON
   */
     public $dataformat='PGSQL';
+   
 
     
     public function init() {
@@ -75,7 +76,9 @@ class ArrayInput extends Widget {
     }
     
     private function registerJS($view) {
-        $js='var '.strtolower($this->model->formName()).'= [];';
+        $js0='var '.strtolower($this->model->formName()).'= [];';
+        $view->registerJS($js0,$view::POS_HEAD);
+        $js='';
         $js.= strtolower($this->model->formName())."['".strtolower(Html::getAttributeName($this->attribute))."']=";
         $js.=  "[".json_encode($this->list)."];";
         $view->registerJS($js,$view::POS_HEAD);
