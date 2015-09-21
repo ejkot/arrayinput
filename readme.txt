@@ -4,6 +4,9 @@ This widget make tags-liked interface for add and delete values in base field, t
 
 History:
 
+Version 0.2alpha
+Move dropdown array to JQuery plugin options
+
 Version 0.1alpha
 
 Some bugfixs...

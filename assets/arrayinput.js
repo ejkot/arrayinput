@@ -1,8 +1,8 @@
 /* @name jquery plugin for arrayinput yii2 widget asset
  * @Author ejkot
  */
-var arrayinput=[[]];
 (function( $ ){
+var arrayinput=[[]];
   var methods={
       init : function(options) {
           $(this).each(function(){
@@ -15,7 +15,7 @@ var arrayinput=[[]];
               b[a[1]]=inputarr;
               arrayinput[a[0]+'_'+a[1]]=inputarr;
               $(this).attr('type','hidden');
-              $(this).kotArrayInput('reload');
+              $(this).kotArrayInput('reload',options);
           });         
       },
       reload : function(options) {
@@ -25,15 +25,14 @@ var arrayinput=[[]];
                   var a=inputid.split('-');           
                   var inputarr=arrayinput[a[0]+'_'+a[1]];
                   /* Достанем массив текстовых описаний каждого значения */
-                  eval("var list="+a[0]+"['"+a[1]+"'];");
                   /* добавим в список элементы */
                   var content='';
                   $.each(inputarr,function(i,val){
-                      content+="<li class='btn btn-default' data-id='"+val+"'>"+list[0][val]+"&nbsp;&nbsp;<a class='glyphicon glyphicon-remove'> </a></li>";
+                      content+="<li class='btn btn-default' data-id='"+val+"'>"+options.list[val]+"&nbsp;&nbsp;<a class='glyphicon glyphicon-remove'> </a></li>";
                   });
                   $("#items-"+inputid).html(content);
                   var dropdown='';
-                  $.each(list[0],function(i,val){
+                  $.each(options.list,function(i,val){
                       var dataid=i.trim();
                       dropdown+='<li class="'+((arrayinput[a[0]+'_'+a[1]].indexOf(i)===-1) ? '' : 'disabled')+'"><a href="#" data-id="'+dataid+'">'+val+'</a></li>';
                   });
@@ -45,7 +44,7 @@ var arrayinput=[[]];
                           arrayinput[a[0]+'_'+a[1]].push(id);
                           var value='{"'+arrayinput[a[0]+'_'+a[1]].join('","')+'"}';
                           $(elem).val(value);
-                          $(elem).kotArrayInput('reload');
+                          $(elem).kotArrayInput('reload',options);
                       }
                   return false;    
                   });
@@ -55,7 +54,7 @@ var arrayinput=[[]];
                         arrayinput[a[0]+'_'+a[1]].splice( arrayinput[a[0]+'_'+a[1]].indexOf(id),1);
                         var value='{"'+arrayinput[a[0]+'_'+a[1]].join('","')+'"}';
                         $(elem).val(value);
-                        $(elem).kotArrayInput('reload');
+                        $(elem).kotArrayInput('reload',options);
                         return false;
                     });
       }

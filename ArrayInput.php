@@ -76,14 +76,10 @@ class ArrayInput extends Widget {
     }
     
     private function registerJS($view) {
-        $js0='var '.strtolower($this->model->formName()).'= [];';
-        $view->registerJS($js0,$view::POS_HEAD);
-        $js='';
-        $js.= strtolower($this->model->formName())."['".strtolower(Html::getAttributeName($this->attribute))."']=";
-        $js.=  "[".json_encode($this->list)."];";
-        $view->registerJS($js,$view::POS_HEAD);
-        $js2="$('.hasArrayinput').kotArrayInput('init');";
-        $view->registerJS($js2,$view::POS_END,'arrayinput');
+      //  $js0='var '.strtolower($this->model->formName()).'= [];';
+      //  $view->registerJS($js0,$view::POS_HEAD);
+        $js2="$('#".Html::getInputId($this->model, $this->attribute)."').kotArrayInput('init',{'list' : ".json_encode($this->list)."});";
+        $view->registerJS($js2,$view::POS_END,'arrayinput'.$this->model->getAttribute($this->attribute));
         return;
     }
     
